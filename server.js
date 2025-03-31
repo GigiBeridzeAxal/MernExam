@@ -6,9 +6,13 @@ import cookieParser from "cookie-parser";
 import examRoutes from "./routes/examRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import path from 'path'
+import cors from 'cors'
 dotenv.config();
 connectDB();
 const app = express();
+app.use(cors({
+  origin:'*'
+}))
 const port = process.env.PORT || 5000;
 
 // to parse req boy
