@@ -4,7 +4,10 @@ import User from "../models/userModel.js";
 
 const protect = asyncHandler(async (req, res, next) => {
   // because of cookie parser we able to use this here
-  let token = req.cookies.jwt;
+  let token = req.headers;
+
+
+  console.log(token)
 
   // cookie present
   if (token) {

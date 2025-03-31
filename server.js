@@ -10,15 +10,15 @@ import cors from 'cors'
 dotenv.config();
 connectDB();
 const app = express();
-app.use(cors({
-  origin:'*'
-}))
+app.use(cookieParser());
+app.use(cors())
+
 const port = process.env.PORT || 5000;
 
 // to parse req boy
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+
 
 // Routes
 app.use("/api/users", userRoutes);
